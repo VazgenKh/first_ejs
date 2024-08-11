@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css">
+    <title><%= title %></title>
+</head>
+<body>
+<%- include('blocks/header') -%>
+
+<div class="container">
+    <h1>About <%= companyName %></h1>
+    <p><%= companyDescription %></p>
+
+    <h2>Our Services</h2>
+    <ul>
+        <% services.forEach(function(service) { %>
+            <li><%= service %></li>
+        <% }); %>
+    </ul>
+
+    <h2>Our Advantages</h2>
+    <p>Why clients choose us:</p>
+    <ul>
+        <% advantages.forEach(function(advantage) { %>
+            <li><%= advantage %></li>
+        <% }); %>
+    </ul>
+
+    <h2>Contact Information</h2>
+    <p>If you have any questions or want to learn more about our services, please get in touch with us:</p>
+    <address>
+        Email: <a href="mailto:<%= contactEmail %>"><%= contactEmail %></a><br>
+        Phone: <%= contactPhone %><br>
+        Address: <%= contactAddress %>
+    </address>
+
+    <h2>Leave Us a Message</h2>
+    <form action="/contact" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <button type="submit">Send</button>
+    </form>
+</div>
+</body>
+</html>

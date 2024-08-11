@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<%- include('blocks/header') -%>
+
+<div class="container">
+    <h1>User Profile: <%= username %></h1>
+
+    <% if(username === 'Vazgen') { %>
+        <h2>Hobbies</h2>
+        <ul class="hobbies-list">
+            <% hobbies.forEach((element) => { %>
+                <li><%= element %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>Welcome, <%= username %>! Unfortunately, we don't have any specific information for you at the moment.</p>
+    <% } %>
+
+    <div class="profile-info">
+        <h2>Profile Details</h2>
+        <p><strong>Username:</strong> <%= username %></p>
+
+    </div>
+</div>
+</body>
+</html>
